@@ -11,3 +11,9 @@
         @apply text-base antialiased;
     }
 }
+
+@layer utilities {
+    [x-cloak] {
+        @apply !hidden;
+    }
+}

@@ -1,7 +1,5 @@
 <?php
 
-it('returns a successful response', function () {
-    $response = $this->get('/');
-
-    $response->assertStatus(200);
+test('has a home page', function () {
+    $this->get('/')->assertOk();
 });

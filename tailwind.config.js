@@ -4,7 +4,11 @@ module.exports = {
     './resources/**/*.{blade.php,js,vue}',
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        barlow: ["'Barlow Condensed'", 'sans-serif'],
+      },
+    },
   },
   plugins: [
     require('@tailwindcss/forms'),

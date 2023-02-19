@@ -6,6 +6,8 @@
 
         <title>{{ config('app.name') }}</title>
 
+        <link rel="shortcut icon" type="image/svg+xml" href="/favicon.svg" />
+
         @vite(['resources/css/app.css', 'resources/js/app.js'])
 
         @livewireStyles

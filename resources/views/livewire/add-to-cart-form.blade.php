@@ -2,55 +2,45 @@
     x-data="{ quantity: 1 }"
     class="flex items-center gap-5"
 >
-    <div class="flex items-center gap-2">
-        <button
-            aria-label="Zväčšiť množstvo o 1"
-            class="rounded-[100%] border-[3px] border-black p-2 hover:bg-black hover:text-white"
-            @click="quantity++"
+    @if ($onlyIcon)
+        <x-icon-button
+            class="transition-transform duration-300 hover:scale-110 active:brightness-90"
+            aria-label="Pridať do košíka"
+            @click="$wire.add(quantity)"
         >
-            <svg
-                class="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="4"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
+            <x-icon.plus
+                class="h-5 w-5 stroke-[4]"
                 aria-hidden="true"
+            />
+        </x-icon-button>
+    @else
+        <div class="flex items-center gap-2">
+            <button
+                aria-label="Zväčšiť množstvo o 1"
+                class="rounded-[100%] border-[3px] border-black p-2 hover:bg-black hover:text-white"
+                @click="quantity++"
             >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M12 4.5v15m7.5-7.5h-15"
+                <x-icon.plus
+                    class="h-4 w-4 stroke-[4]"
+                    aria-hidden="true"
                 />
-            </svg>
-        </button>
-        <span
-            x-text="quantity"
-            class="flex w-8 select-none justify-center text-4xl font-bold"
-        ></span>
-        <button
-            aria-label="Zmenšiť množstvo o 1"
-            class="rounded-[100%] border-[3px] border-black p-2 hover:bg-black hover:text-white"
-            :class="quantity > 1 || 'cursor-not-allowed opacity-50'"
-            @click="if (quantity > 1) quantity--"
-        >
-            <svg
-                class="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="4"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
+            </button>
+            <span
+                x-text="quantity"
+                class="flex w-8 select-none justify-center text-4xl font-bold"
+            ></span>
+            <button
+                aria-label="Zmenšiť množstvo o 1"
+                class="rounded-[100%] border-[3px] border-black p-2 hover:bg-black hover:text-white"
+                :class="quantity > 1 || 'cursor-not-allowed opacity-50'"
+                @click="if (quantity > 1) quantity--"
             >
-                <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M19.5 12h-15"
+                <x-icon.minus
+                    class="h-4 w-4 stroke-[4]"
+                    aria-hidden="true"
                 />
-            </svg>
-
-        </button>
-    </div>
-    <x-button @click="$wire.add(quantity)">Pridať do košíka</x-button>
+            </button>
+        </div>
+        <x-button @click="$wire.add(quantity)">Pridať do košíka</x-button>
+    @endif
 </div>

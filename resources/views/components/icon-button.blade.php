@@ -9,7 +9,7 @@
 
 <{{ $element }}
     {{ $attributes->class([
-        'relative inline-flex items-center justify-center rounded-2xl px-10 py-5 text-center text-xl font-bold uppercase active:brightness-90 sm:px-14 sm:text-2xl',
+        'relative inline-flex items-center justify-center rounded-full p-4',
         'bg-blue text-black' => $color === 'blue',
         'bg-rose text-black' => $color === 'rose',
     ]) }}

@@ -8,6 +8,8 @@ use Livewire\Component;
 
 class AddToCartForm extends Component
 {
+    public bool $onlyIcon = false;
+
     public Product $product;
 
     public function add(int $quantity = 1): void

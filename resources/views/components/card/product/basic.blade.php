@@ -3,7 +3,7 @@
 <div class="relative z-10 rounded-3xl p-4 shadow-[0_0_10px_rgba(0,0,0,0.25)]">
     <a href="{{ route('products.show', $product) }}">
         {{ $product->thumbnail->img()->attributes([
-            'class' => 'h-60 w-auto mx-auto drop-shadow-[-20px_20px_10px_rgba(0,0,0,0.25)]',
+            'class' => 'mx-auto h-60 w-auto drop-shadow-[-20px_20px_10px_rgba(0,0,0,0.25)]',
             'alt' => $product->name,
         ]) }}
         <div class="mt-5 ml-2">

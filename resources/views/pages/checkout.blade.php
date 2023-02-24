@@ -6,7 +6,7 @@
                     <span class="underscore after:!h-7 after:bg-rose">Pokladňa</span>
                 </h1>
             </div>
-            <div class="mt-10 grid grid-cols-1 lg:grid-cols-2 gap-20">
+            <div class="mt-10 grid grid-cols-1 gap-20 lg:grid-cols-2">
                 <div class="relative lg:order-2">
                     <div class="sticky top-10">
                         <span class="text-3xl">00</span>

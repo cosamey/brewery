@@ -47,7 +47,7 @@
         <div class="px-16 py-32">
             <div class="grid grid-cols-1 items-center gap-10 lg:grid-cols-3">
                 <div class="text-right lg:order-2 lg:col-span-1">
-                    <h2 class="text-5xl lg:text-6xl xl:text-7xl font-bold uppercase">
+                    <h2 class="text-5xl font-bold uppercase lg:text-6xl xl:text-7xl">
                         <span class="underscore after:bg-blue">Discover</span> <br />our products
                     </h2>
                     <p class="mt-10 text-xl text-gray-700">
@@ -58,12 +58,12 @@
                     <x-button
                         as="link"
                         href="{{ route('products.index') }}"
-                        class="mt-14"
                         color="blue"
+                        class="mt-14"
                     >Všetky produkty</x-button>
                 </div>
                 <div class="lg:order-1 lg:col-span-2">
-                    <div class="flex flex-col md:flex-row items-center gap-10">
+                    <div class="flex flex-col items-center gap-10 md:flex-row">
                         @each('components.card.product.featured', $featuredProducts, 'product')
                     </div>
                 </div>

@@ -8,7 +8,7 @@
 >
     <div class="mt-10">
         {{ $product->thumbnail->img()->attributes([
-            'class' => 'mx-auto object-contain w-auto origin-bottom-left translate-x-10 drop-shadow-[-20px_20px_10px_rgba(0,0,0,0.25)] transition group-hover:-rotate-3',
+            'class' => 'mx-auto w-auto origin-bottom-left translate-x-10 object-contain drop-shadow-[-20px_20px_10px_rgba(0,0,0,0.25)] transition group-hover:-rotate-3',
             'alt' => $product->name,
         ]) }}
     </div>

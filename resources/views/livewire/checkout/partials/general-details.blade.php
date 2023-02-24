@@ -6,7 +6,7 @@
     <h2 class="text-4xl font-bold uppercase">
         Základné informácie
     </h2>
-    <div class="mt-5 grid grid-cols-1 sm:grid-cols-6 gap-x-10 gap-y-5">
+    <div class="mt-5 grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-6">
         <x-form.group
             id="first-name"
             label="Meno"
@@ -81,7 +81,7 @@
         x-cloak
     >
         <h3 class="mt-5 text-3xl font-bold uppercase">Údaje o spoločnosti</h3>
-        <div class="mt-5 grid grid-cols-1 sm:grid-cols-6 gap-x-10 gap-y-5">
+        <div class="mt-5 grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-6">
             <x-form.group
                 id="company"
                 label="Spoločnosť"

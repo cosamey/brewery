@@ -1,4 +1,7 @@
-<form wire:submit.prevent="order" class="flex flex-col gap-10">
+<form
+    wire:submit.prevent="order"
+    class="flex flex-col gap-10"
+>
     @include('livewire.checkout.partials.general-details')
     @include('livewire.checkout.partials.shipping-details')
     @include('livewire.checkout.partials.delivery-method')
@@ -23,18 +26,21 @@
                     <a
                         href="{{ route('pages.terms') }}"
                         target="_blank"
-                        class="underline hover:opacity-50 transition-opacity"
+                        class="underline transition-opacity hover:opacity-50"
                     >obchodnými podmienkami</a> a
                     <a
                         href="{{ route('pages.privacy') }}"
                         target="_blank"
-                        class="underline hover:opacity-50 transition-opacity"
+                        class="underline transition-opacity hover:opacity-50"
                     >zásadami o ochrane osobných údajov</a>.
                 </span>
             </label>
         </div>
     </div>
     <div>
-        <x-button type="submit" class="w-full">Objednať s povinnosťou platby</x-button>
+        <x-button
+            type="submit"
+            class="w-full"
+        >Objednať s povinnosťou platby</x-button>
     </div>
 </form>

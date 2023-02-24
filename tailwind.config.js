@@ -5,6 +5,14 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+        black: '#010101',
+        blue: '#83CBD4',
+        green: '#88C286',
+        rose: '#F37F73',
+        white: '#FFFDF4',
+        yellow: '#FCEDA9',
+      },
       fontFamily: {
         barlow: ["'Barlow Condensed'", 'sans-serif'],
       },

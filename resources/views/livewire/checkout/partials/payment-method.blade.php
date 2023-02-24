@@ -11,12 +11,33 @@
     >
         <x-form.radio-card value="card">
             <span class="font-medium text-gray-900">Platobná karta</span>
+            <x-slot:icon>
+                <x-icon.credit-card
+                    class="h-5 w-5"
+                    ::class="{ 'text-indigo-600': $radioOption.isChecked }"
+                    aria-hidden="true"
+                />
+                </x-slot>
         </x-form.radio-card>
         <x-form.radio-card value="cash">
-            <span class="font-medium text-gray-900">Dobierka</span>
+            <span class="font-medium text-gray-900">Dobierka <span class="text-gray-500">(+ 1 €)</span></span>
+            <x-slot:icon>
+                <x-icon.cash
+                    class="h-5 w-5"
+                    ::class="{ 'text-indigo-600': $radioOption.isChecked }"
+                    aria-hidden="true"
+                />
+                </x-slot>
         </x-form.radio-card>
         <x-form.radio-card value="transfer">
             <span class="font-medium text-gray-900">Bankový prevod</span>
+            <x-slot:icon>
+                <x-icon.library
+                    class="h-5 w-5"
+                    ::class="{ 'text-indigo-600': $radioOption.isChecked }"
+                    aria-hidden="true"
+                />
+                </x-slot>
         </x-form.radio-card>
     </div>
 </div>

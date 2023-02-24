@@ -11,3 +11,5 @@ Route::resource('products', Controllers\ProductController::class)
 
 Route::get('/checkout', Controllers\CheckoutController::class)->name('pages.checkout');
 
+Route::view('/terms-conditions', 'pages.terms')->name('pages.terms');
+Route::view('/privacy-policy', 'pages.privacy')->name('pages.privacy');

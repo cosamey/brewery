@@ -3,10 +3,10 @@
 namespace App\Models;
 
 use App\Casts\Money;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, Relations};
-use Illuminate\Database\Eloquent\Casts\Attribute;
 
 class Item extends Model
 {
@@ -27,6 +27,13 @@ class Item extends Model
         'tax_rate' => 'int',
         'price' => Money::class,
     ];
+
+    protected function tax(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => $this->quantity * ($this->price / (1 + ($this->tax_rate / 100))) * ($this->tax_rate / 100),
+        );
+    }
 
     protected function total(): Attribute
     {

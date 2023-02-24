@@ -48,7 +48,7 @@
                     </div>
                 </div>
                 <div class="lg:order-1">
-
+                    <livewire:checkout-form />
                 </div>
             </div>
         </div>

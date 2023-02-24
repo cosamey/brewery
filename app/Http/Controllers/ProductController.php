@@ -7,6 +7,16 @@ use Illuminate\View\View;
 
 class ProductController extends Controller
 {
+    public function index(): View
+    {
+        return view('products.index', [
+            'products' => Product::query()
+                ->active()
+                ->with(['thumbnail'])
+                ->get(),
+        ]);
+    }
+
     public function show(Product $product): View
     {
         return view('products.show', [

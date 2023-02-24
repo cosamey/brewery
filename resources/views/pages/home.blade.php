@@ -56,6 +56,8 @@
                         eveniet architecto unde, asperiores ad!
                     </p>
                     <x-button
+                        as="link"
+                        href="{{ route('products.index') }}"
                         class="mt-14"
                         color="blue"
                     >Všetky produkty</x-button>

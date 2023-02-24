@@ -14,9 +14,13 @@
     </head>
 
     <body>
+        @include('layouts.partials.header')
+
         <main>
             {{ $slot }}
         </main>
+
+        @include('layouts.partials.footer')
 
         @livewireScripts
     </body>

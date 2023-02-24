@@ -14,6 +14,9 @@ return new class extends Migration
             $table->enum('type', ['individual', 'company']);
             $table->string('email');
             $table->string('phone');
+            $table->string('business_id')->nullable();
+            $table->string('tax_id')->nullable();
+            $table->string('vat_id')->nullable();
             $table->timestamps();
         });
     }

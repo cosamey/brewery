@@ -44,6 +44,11 @@ class CartService
         return $this->cart->items->sum(fn ($item) => $item->quantity);
     }
 
+    public function tax(): float
+    {
+        return $this->cart->items->sum('tax');
+    }
+
     public function total(): float
     {
         return $this->cart->items->sum('total');

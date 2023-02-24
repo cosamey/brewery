@@ -28,6 +28,7 @@
                             class="px-4 py-2 text-lg font-medium uppercase"
                         >Produkty</a>
                     </nav>
+                    <livewire:mini-cart />
                     <x-social-icons class="hidden md:flex md:items-center md:gap-2" />
                     <div class="relative md:hidden">
                         <button

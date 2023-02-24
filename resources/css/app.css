@@ -10,12 +10,20 @@
     }
 
     body {
-        @apply font-barlow text-base antialiased;
+        @apply bg-white font-barlow text-base antialiased selection:bg-rose selection:text-white;
     }
 }
 
 @layer utilities {
     [x-cloak] {
         @apply !hidden;
+    }
+
+    .underscore {
+        @apply relative z-10;
+    }
+
+    .underscore::after {
+        @apply absolute top-2/3 -left-3 -z-10 h-5 w-[calc(100%+1.5rem)];
     }
 }

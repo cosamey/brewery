@@ -7,7 +7,7 @@ use Illuminate\Support\Collection;
 
 class CartService
 {
-    protected Cart $cart;
+    protected ?Cart $cart;
 
     public function __construct()
     {
@@ -16,6 +16,10 @@ class CartService
 
     public function add(Product $product, int $quantity = 1): void
     {
+        if (! $this->cart) {
+            $this->cart = $this->createCart();
+        }
+
         $item = $this->cart->items()->firstOrNew(
             ['product_id' => $product->id],
             [
@@ -31,37 +35,46 @@ class CartService
 
     public function remove(string $itemId): void
     {
-        $this->cart->items()->where('id', $itemId)->delete();
+        $this->cart?->items()->where('id', $itemId)->delete();
     }
 
     public function items(): Collection
     {
-        return $this->cart->items;
+        return $this->cart?->items ?? collect();
     }
 
     public function count(): int
     {
-        return $this->cart->items->sum(fn ($item) => $item->quantity);
+        return $this->cart?->items->sum(fn ($item) => $item->quantity) ?? 0;
     }
 
     public function tax(): float
     {
-        return $this->cart->items->sum('tax');
+        return $this->cart?->items->sum('tax') ?? 0;
     }
 
     public function total(): float
     {
-        return $this->cart->items->sum('total');
+        return $this->cart?->items->sum('total') ?? 0;
     }
 
-    protected function retrieveCart(): Cart
+    protected function retrieveCart(): ?Cart
     {
-        return Cart::where('id', session()->get('cart_id'))->with(['items'])->firstOr(function () {
-            $cart = Cart::create();
+        $cartId = session()->get('cart_id');
 
-            session()->put('cart_id', $cart->id);
+        if (! $cartId) {
+            return null;
+        }
 
-            return $cart;
-        });
+        return Cart::where('id', $cartId)->with(['items'])->first();
+    }
+
+    protected function createCart(): Cart
+    {
+        $cart = Cart::create();
+
+        session()->put('cart_id', $cart->id);
+
+        return $cart;
     }
 }

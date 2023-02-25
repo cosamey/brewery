@@ -3,7 +3,7 @@
 	font-style: normal;
 	font-weight: 100;
     font-display: swap;
-	src: url('../fonts/barlow/barlow-thin.woff2') format('woff2');
+	src: url('../../fonts/barlow/barlow-thin.woff2') format('woff2');
 }
 
 @font-face {
@@ -11,7 +11,7 @@
 	font-style: normal;
 	font-weight: 200;
     font-display: swap;
-	src: url('../fonts/barlow/barlow-extralight.woff2') format('woff2');
+	src: url('../../fonts/barlow/barlow-extralight.woff2') format('woff2');
 }
 
 @font-face {
@@ -19,7 +19,7 @@
 	font-style: normal;
 	font-weight: 300;
     font-display: swap;
-	src: url('../fonts/barlow/barlow-light.woff2') format('woff2');
+	src: url('../../fonts/barlow/barlow-light.woff2') format('woff2');
 }
 
 @font-face {
@@ -27,7 +27,7 @@
 	font-style: normal;
 	font-weight: 400;
     font-display: swap;
-	src: url('../fonts/barlow/barlow-regular.woff2') format('woff2');
+	src: url('../../fonts/barlow/barlow-regular.woff2') format('woff2');
 }
 
 @font-face {
@@ -35,7 +35,7 @@
 	font-style: normal;
 	font-weight: 500;
     font-display: swap;
-	src: url('../fonts/barlow/barlow-medium.woff2') format('woff2');
+	src: url('../../fonts/barlow/barlow-medium.woff2') format('woff2');
 }
 
 @font-face {
@@ -43,7 +43,7 @@
 	font-style: normal;
 	font-weight: 600;
     font-display: swap;
-	src: url('../fonts/barlow/barlow-semibold.woff2') format('woff2');
+	src: url('../../fonts/barlow/barlow-semibold.woff2') format('woff2');
 }
 
 @font-face {
@@ -51,7 +51,7 @@
 	font-style: normal;
 	font-weight: 700;
     font-display: swap;
-	src: url('../fonts/barlow/barlow-bold.woff2') format('woff2');
+	src: url('../../fonts/barlow/barlow-bold.woff2') format('woff2');
 }
 
 @font-face {
@@ -59,7 +59,7 @@
 	font-style: normal;
 	font-weight: 800;
     font-display: swap;
-	src: url('../fonts/barlow/barlow-extrabold.woff2') format('woff2');
+	src: url('../../fonts/barlow/barlow-extrabold.woff2') format('woff2');
 }
 
 @font-face {
@@ -67,5 +67,5 @@
 	font-style: normal;
 	font-weight: 900;
     font-display: swap;
-	src: url('../fonts/barlow/barlow-black.woff2') format('woff2');
+	src: url('../../fonts/barlow/barlow-black.woff2') format('woff2');
 }

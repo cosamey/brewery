@@ -10,36 +10,36 @@
         <x-form.group
             id="first-name"
             label="Meno"
-            :error="$errors->first('state.firstName')"
+            :error="$errors->first('state.customer.firstName')"
             class="sm:col-span-3"
             required
         >
             <x-form.input
-                wire:model.lazy="state.firstName"
+                wire:model.lazy="state.customer.firstName"
                 autocomplete="given-name"
             />
         </x-form.group>
         <x-form.group
             id="last-name"
             label="Priezvisko"
-            :error="$errors->first('state.lastName')"
+            :error="$errors->first('state.customer.lastName')"
             class="sm:col-span-3"
             required
         >
             <x-form.input
-                wire:model.lazy="state.lastName"
+                wire:model.lazy="state.customer.lastName"
                 autocomplete="family-name"
             />
         </x-form.group>
         <x-form.group
             id="phone"
             label="Telefón"
-            :error="$errors->first('state.phone')"
+            :error="$errors->first('state.customer.phone')"
             class="sm:col-span-3"
             required
         >
             <x-form.input
-                wire:model.lazy="state.phone"
+                wire:model.lazy="state.customer.phone"
                 x-data=""
                 x-mask="+429 999 999 999"
                 type="tel"
@@ -49,12 +49,12 @@
         <x-form.group
             id="email"
             label="Email"
-            :error="$errors->first('state.email')"
+            :error="$errors->first('state.customer.email')"
             class="sm:col-span-3"
             required
         >
             <x-form.input
-                wire:model.lazy="state.email"
+                wire:model.lazy="state.customer.email"
                 type="email"
                 autocomplete="email"
             />
@@ -85,37 +85,37 @@
             <x-form.group
                 id="company"
                 label="Spoločnosť"
-                :error="$errors->first('state.company.name')"
+                :error="$errors->first('state.customer.company.name')"
                 class="sm:col-span-6"
             >
                 <x-form.input
-                    wire:model.lazy="state.company.name"
+                    wire:model.lazy="state.customer.company.name"
                     autocomplete="organization"
                 />
             </x-form.group>
             <x-form.group
-                id="business-id"
+                id="business-no"
                 label="IČO"
-                :error="$errors->first('state.company.businessId')"
+                :error="$errors->first('state.customer.company.businessNo')"
                 class="sm:col-span-2"
             >
-                <x-form.input wire:model.lazy="state.company.businessId" />
+                <x-form.input wire:model.lazy="state.customer.company.businessNo" />
             </x-form.group>
             <x-form.group
-                id="tax-id"
+                id="tax-no"
                 label="DIČ"
-                :error="$errors->first('state.company.taxId')"
+                :error="$errors->first('state.customer.company.taxNo')"
                 class="sm:col-span-2"
             >
-                <x-form.input wire:model.lazy="state.company.taxId" />
+                <x-form.input wire:model.lazy="state.customer.company.taxNo" />
             </x-form.group>
             <x-form.group
-                id="vat-id"
+                id="vat-no"
                 label="IČ DPH"
-                :error="$errors->first('state.company.vatId')"
+                :error="$errors->first('state.customer.company.vatNo')"
                 class="sm:col-span-2"
             >
-                <x-form.input wire:model.lazy="state.company.vatId" />
+                <x-form.input wire:model.lazy="state.customer.company.vatNo" />
             </x-form.group>
         </div>
     </div>

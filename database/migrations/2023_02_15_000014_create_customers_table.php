@@ -10,13 +10,13 @@ return new class extends Migration
     {
         Schema::create('customers', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->enum('type', ['individual', 'company']);
+            $table->string('company')->nullable();
             $table->string('email');
             $table->string('phone');
-            $table->string('business_id')->nullable();
-            $table->string('tax_id')->nullable();
-            $table->string('vat_id')->nullable();
+            $table->json('meta')->nullable();
             $table->timestamps();
         });
     }

@@ -13,7 +13,9 @@ use Livewire\{Component, Redirector};
 class CheckoutForm extends Component
 {
     public array $state = [
-        'phone' => '+421 ',
+        'customer' => [
+            'phone' => '+421 ',
+        ],
         'purchasingAsCompany' => false,
         'shippingAddress' => [
             'countryCode' => 'SK',
@@ -40,15 +42,15 @@ class CheckoutForm extends Component
     public function rules(): array
     {
         return [
-            'state.firstName' => ['required', 'string', 'max:255'],
-            'state.lastName' => ['required', 'string', 'max:255'],
-            'state.phone' => ['required', 'string', 'min:10', 'max:255'],
-            'state.email' => ['required', 'email', 'max:255'],
+            'state.customer.firstName' => ['required', 'string', 'max:255'],
+            'state.customer.lastName' => ['required', 'string', 'max:255'],
+            'state.customer.phone' => ['required', 'string', 'min:10', 'max:255'],
+            'state.customer.email' => ['required', 'email', 'max:255'],
             'state.purchasingAsCompany' => [],
-            'state.company.name' => ['required_if:state.purchasingAsCompany,true', 'string', 'max:255'],
-            'state.company.businessId' => ['required_if:state.purchasingAsCompany,true', 'string', 'max:255'],
-            'state.company.taxId' => ['required_if:state.purchasingAsCompany,true', 'string', 'max:255'],
-            'state.company.vatId' => ['string', 'max:255'],
+            'state.customer.company.name' => ['required_if:state.purchasingAsCompany,true', 'string', 'max:255'],
+            'state.customer.company.businessId' => ['required_if:state.purchasingAsCompany,true', 'string', 'max:255'],
+            'state.customer.company.taxId' => ['required_if:state.purchasingAsCompany,true', 'string', 'max:255'],
+            'state.customer.company.vatId' => ['string', 'max:255'],
             'state.shippingAddress.street' => ['required', 'string', 'max:255'],
             'state.shippingAddress.city' => ['required', 'string', 'max:255'],
             'state.shippingAddress.postCode' => ['required', 'string', 'max:6'],

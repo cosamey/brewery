@@ -13,14 +13,18 @@ class Customer extends Model
     use HasUuids;
 
     protected $fillable = [
-        'name',
+        'first_name',
+        'last_name',
         'type',
+        'company',
         'email',
         'phone',
+        'meta',
     ];
 
     protected $casts = [
         'type' => CustomerType::class,
+        'meta' => 'object',
     ];
 
     public function addresses(): Relations\HasMany

@@ -41,6 +41,11 @@
                 />
             </button>
         </div>
-        <x-button @click="$wire.add(quantity)">Pridať do košíka</x-button>
+        <x-button
+            color="black"
+            @click="$wire.add(quantity)"
+        >
+            Pridať do košíka
+        </x-button>
     @endif
 </div>

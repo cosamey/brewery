@@ -12,6 +12,7 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('customer_id')->nullable()->constrained()->onDelete('cascade');
             $table->enum('status', ['open', 'closed', 'abandoned', 'completed']);
+            $table->timestamp('completed_at')->nullable();
             $table->timestamps();
         });
     }

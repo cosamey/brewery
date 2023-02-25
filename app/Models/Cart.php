@@ -15,10 +15,12 @@ class Cart extends Model
     protected $fillable = [
         'customer_id',
         'status',
+        'completed_at',
     ];
 
     protected $casts = [
         'status' => CartStatus::class,
+        'completed_at' => 'datetime',
     ];
 
     public function customer(): Relations\BelongsTo

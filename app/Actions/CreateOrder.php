@@ -45,6 +45,7 @@ class CreateOrder
         $cart->update([
             'customer_id' => $customer->id,
             'status' => CartStatus::Completed,
+            'completed_at' => now(),
         ]);
 
         $order = $customer->orders()->create([

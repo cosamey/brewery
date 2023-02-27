@@ -18,15 +18,21 @@
                         <a
                             href="/"
                             class="px-4 py-2 text-lg font-medium uppercase"
-                        >Úvod</a>
+                        >
+                            Úvod
+                        </a>
                         <a
                             href="/#about"
                             class="px-4 py-2 text-lg font-medium uppercase"
-                        >O pivovare</a>
+                        >
+                            O pivovare
+                        </a>
                         <a
-                            href="/#products"
+                            href="{{ route('products.index') }}"
                             class="px-4 py-2 text-lg font-medium uppercase"
-                        >Produkty</a>
+                        >
+                            Produkty
+                        </a>
                     </nav>
                     <livewire:mini-cart />
                     <x-social-icons class="hidden md:flex md:items-center md:gap-2" />
@@ -61,15 +67,21 @@
                                 <a
                                     href="/"
                                     class="px-4 py-1 text-lg font-medium uppercase"
-                                >Úvod</a>
+                                >
+                                    Úvod
+                                </a>
                                 <a
                                     href="/#about"
                                     class="px-4 py-1 text-lg font-medium uppercase"
-                                >O pivovare</a>
+                                >
+                                    O pivovare
+                                </a>
                                 <a
-                                    href="/#products"
+                                    href="{{ route('products.index') }}"
                                     class="px-4 py-1 text-lg font-medium uppercase"
-                                >Produkty</a>
+                                >
+                                    Produkty
+                                </a>
                             </nav>
                         </div>
                     </div>

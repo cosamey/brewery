@@ -41,6 +41,8 @@
         <x-button
             type="submit"
             class="w-full"
-        >Objednať s povinnosťou platby</x-button>
+        >
+            Objednať s povinnosťou platby
+        </x-button>
     </div>
 </form>

@@ -13,7 +13,7 @@
             <span class="font-medium text-gray-900">Platobná karta</span>
             <x-slot:icon>
                 <x-icon.credit-card
-                    class="h-5 w-5"
+                    class="h-6 w-6"
                     ::class="{ 'text-indigo-600': $radioOption.isChecked }"
                     aria-hidden="true"
                 />
@@ -23,7 +23,7 @@
             <span class="font-medium text-gray-900">Dobierka <span class="text-gray-500">(+ 1 €)</span></span>
             <x-slot:icon>
                 <x-icon.cash
-                    class="h-5 w-5"
+                    class="h-6 w-6"
                     ::class="{ 'text-indigo-600': $radioOption.isChecked }"
                     aria-hidden="true"
                 />
@@ -33,7 +33,7 @@
             <span class="font-medium text-gray-900">Bankový prevod</span>
             <x-slot:icon>
                 <x-icon.library
-                    class="h-5 w-5"
+                    class="h-6 w-6"
                     ::class="{ 'text-indigo-600': $radioOption.isChecked }"
                     aria-hidden="true"
                 />

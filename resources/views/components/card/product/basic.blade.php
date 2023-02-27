@@ -7,7 +7,7 @@
             'alt' => $product->name,
         ]) }}
         <div class="mt-5 ml-2">
-            <h3 class="text-4xl font-bold uppercase">{{ $product->name }}</h3>
+            <h3 class="text-2xl font-bold uppercase">{{ $product->name }}</h3>
             <dl>
                 <dt class="sr-only">Typ</dt>
                 <dt class="text-base uppercase">{{ $product->attributes->type }}</dt>

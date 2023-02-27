@@ -24,7 +24,7 @@
                             <h1 class="text-7xl font-bold uppercase">
                                 <span
                                     class="underscore after:bg-[var(--underscore-color)]"
-                                    style="--underscore-color: {{ $product->attributes->color }}"
+                                    style="--underscore-color: {{ $product->attributes->color ?? '#FFFFFF' }}"
                                 >
                                     {{ $product->name }}
                                 </span>

@@ -18,7 +18,7 @@
             <span class="mt-5 font-medium text-gray-900">Zadarmo</span>
             <x-slot:icon>
                 <x-icon.check-circle
-                    class="h-5 w-5 text-indigo-600"
+                    class="h-5 w-5 self-start text-indigo-600"
                     ::class="{ 'invisible': !$radioOption.isChecked }"
                     aria-hidden="true"
                 />
@@ -33,7 +33,7 @@
             <span class="mt-5 font-medium text-gray-900">{{ price_format(5) }}</span>
             <x-slot:icon>
                 <x-icon.check-circle
-                    class="h-5 w-5 text-indigo-600"
+                    class="h-5 w-5 self-start text-indigo-600"
                     ::class="{ 'invisible': !$radioOption.isChecked }"
                     aria-hidden="true"
                 />

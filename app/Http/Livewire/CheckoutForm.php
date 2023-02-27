@@ -20,6 +20,9 @@ class CheckoutForm extends Component
         'shippingAddress' => [
             'countryCode' => 'SK',
         ],
+        'billingAddress' => [
+            'countryCode' => 'SK',
+        ],
         'sameAddress' => true,
         'deliveryMethod' => 'courier',
         'paymentMethod' => 'card',
@@ -48,9 +51,9 @@ class CheckoutForm extends Component
             'state.customer.email' => ['required', 'email', 'max:255'],
             'state.purchasingAsCompany' => [],
             'state.customer.company.name' => ['required_if:state.purchasingAsCompany,true', 'string', 'max:255'],
-            'state.customer.company.businessId' => ['required_if:state.purchasingAsCompany,true', 'string', 'max:255'],
-            'state.customer.company.taxId' => ['required_if:state.purchasingAsCompany,true', 'string', 'max:255'],
-            'state.customer.company.vatId' => ['string', 'max:255'],
+            'state.customer.company.businessNo' => ['required_if:state.purchasingAsCompany,true', 'numeric', 'max_digits:8'],
+            'state.customer.company.taxNo' => ['required_if:state.purchasingAsCompany,true', 'numeric', 'max_digits:10'],
+            'state.customer.company.vatNo' => ['string', 'alpha_num:ascii', 'max:12'],
             'state.shippingAddress.street' => ['required', 'string', 'max:255'],
             'state.shippingAddress.city' => ['required', 'string', 'max:255'],
             'state.shippingAddress.postCode' => ['required', 'string', 'max:6'],

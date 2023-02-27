@@ -10,21 +10,21 @@ class CreateOrder
     public function order(array $data): Order
     {
         $customer = Customer::create([
-            'first_name' => $data['customer']['first_name'],
-            'last_name' => $data['customer']['last_name'],
+            'first_name' => $data['customer']['firstName'],
+            'last_name' => $data['customer']['lastName'],
             'type' => $data['purchasingAsCompany']
                 ? CustomerType::Company
                 : CustomerType::Individual,
             'company' => $data['purchasingAsCompany']
                 ? $data['customer']['company']['name']
                 : null,
-            'email' => $data['email'],
-            'phone' => $data['phone'],
-            'meta' => [
-                'business_no' => $data['customer']['company']['businessNo'],
-                'tax_no' => $data['customer']['company']['businessNo'],
-                'vat_no' => $data['customer']['company']['businessNo'],
-            ],
+            'email' => $data['customer']['email'],
+            'phone' => $data['customer']['phone'],
+            'meta' => array_filter([
+                'business_no' => $data['customer']['company']['businessNo'] ?? null,
+                'tax_no' => $data['customer']['company']['taxNo'] ?? null,
+                'vat_no' => $data['customer']['company']['vatNo'] ?? null,
+            ], fn ($value) => ! empty($value)),
         ]);
 
         $shippingAddress = $customer->addresses()->create([

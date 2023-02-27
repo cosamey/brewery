@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use App\Enums\CartStatus;
 use App\Models\{Cart, Product};
 use Illuminate\Support\Collection;
 
@@ -66,7 +67,11 @@ class CartService
             return null;
         }
 
-        return Cart::where('id', $cartId)->with(['items'])->first();
+        return Cart::query()
+            ->where('id', $cartId)
+            ->where('status', CartStatus::Open)
+            ->with(['items'])
+            ->first();
     }
 
     protected function createCart(): Cart

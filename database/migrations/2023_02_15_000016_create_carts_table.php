@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('carts', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->foreignUuid('customer_id')->nullable()->constrained()->onDelete('cascade');
-            $table->enum('status', ['open', 'closed', 'abandoned', 'completed']);
+            $table->enum('status', ['open', 'abandoned', 'completed']);
             $table->timestamp('completed_at')->nullable();
             $table->timestamps();
         });

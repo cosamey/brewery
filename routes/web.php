@@ -14,3 +14,5 @@ Route::get('/thanks', Controllers\ThanksController::class)->name('pages.thanks')
 
 Route::view('/terms-conditions', 'pages.terms')->name('pages.terms');
 Route::view('/privacy-policy', 'pages.privacy')->name('pages.privacy');
+
+Route::post('/webhooks/stripe', Controllers\Webhooks\StripeController::class);

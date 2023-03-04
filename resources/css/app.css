@@ -14,6 +14,12 @@
     }
 }
 
+@layer components {
+    #payment-element {
+        @apply p-4 rounded-2xl border-2 border-gray-500;
+    }
+}
+
 @layer utilities {
     [x-cloak] {
         @apply !hidden;

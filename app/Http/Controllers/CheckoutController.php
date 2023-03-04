@@ -13,10 +13,6 @@ class CheckoutController extends Controller
             return to_route('pages.home');
         }
 
-        return view('pages.checkout', [
-            'items' => cart()->items(),
-            'tax' => cart()->tax(),
-            'total' => cart()->total(),
-        ]);
+        return view('pages.checkout');
     }
 }

@@ -59,6 +59,11 @@ class CartService
         return $this->cart?->items->sum('total') ?? 0;
     }
 
+    public function model(): ?Cart
+    {
+        return $this->cart;
+    }
+
     protected function retrieveCart(): ?Cart
     {
         $cartId = session()->get('cart_id');

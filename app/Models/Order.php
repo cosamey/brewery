@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Casts\Money;
 use App\Enums\{DeliveryMethod, OrderStatus, PaymentMethod};
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -19,6 +20,8 @@ class Order extends Model
         'status',
         'payment_method',
         'delivery_method',
+        'fees',
+        'total',
         'notes',
     ];
 
@@ -26,6 +29,8 @@ class Order extends Model
         'status' => OrderStatus::class,
         'payment_method' => PaymentMethod::class,
         'delivery_method' => DeliveryMethod::class,
+        'fees' => 'object',
+        'total' => Money::class,
     ];
 
     public function cart(): Relations\BelongsTo
@@ -41,5 +46,10 @@ class Order extends Model
     public function address(): Relations\BelongsTo
     {
         return $this->belongsTo(Address::class);
+    }
+
+    public function payment(): Relations\HasOne
+    {
+        return $this->hasOne(Payment::class);
     }
 }

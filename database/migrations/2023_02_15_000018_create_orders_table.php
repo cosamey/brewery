@@ -16,6 +16,8 @@ return new class extends Migration
             $table->enum('status', ['pending', 'processing', 'shipped', 'completed', 'canceled', 'refunded']);
             $table->enum('delivery_method', ['pickup', 'courier']);
             $table->enum('payment_method', ['card', 'cash', 'transfer']);
+            $table->json('fees')->nullable();
+            $table->integer('total', unsigned: true);
             $table->text('notes')->nullable();
             $table->timestamps();
         });

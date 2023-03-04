@@ -9,35 +9,23 @@
         x-model="paymentMethod"
         class="mt-5 grid grid-cols-1 gap-x-10 gap-y-5"
     >
-        <x-form.radio-card value="card">
-            <span class="font-medium text-gray-900">Platobná karta</span>
-            <x-slot:icon>
-                <x-icon.credit-card
-                    class="h-6 w-6"
-                    ::class="{ 'text-indigo-600': $radioOption.isChecked }"
-                    aria-hidden="true"
-                />
-                </x-slot>
-        </x-form.radio-card>
-        <x-form.radio-card value="cash">
-            <span class="font-medium text-gray-900">Dobierka <span class="text-gray-500">(+ 1 €)</span></span>
-            <x-slot:icon>
-                <x-icon.cash
-                    class="h-6 w-6"
-                    ::class="{ 'text-indigo-600': $radioOption.isChecked }"
-                    aria-hidden="true"
-                />
-                </x-slot>
-        </x-form.radio-card>
-        <x-form.radio-card value="transfer">
-            <span class="font-medium text-gray-900">Bankový prevod</span>
-            <x-slot:icon>
-                <x-icon.library
-                    class="h-6 w-6"
-                    ::class="{ 'text-indigo-600': $radioOption.isChecked }"
-                    aria-hidden="true"
-                />
-                </x-slot>
-        </x-form.radio-card>
+        @foreach ($this->paymentMethods as $paymentMethod)
+            <x-form.radio-card :value="$paymentMethod['key']" wire:key="{{ $paymentMethod['key'] }}">
+                <span class="font-medium text-gray-900">
+                    {{ $paymentMethod['name'] }}
+                    @if ($paymentMethod['description'])
+                        <span class="text-gray-500">{{ $paymentMethod['description'] }}</span>
+                    @endif
+                </span>
+                <x-slot:icon>
+                    <x-dynamic-component
+                        :component="'icon.'.$paymentMethod['icon']"
+                        :class="{ 'text-indigo-600': $radioOption.isChecked }"
+                        class="h-6 w-6"
+                        aria-hidden="true"
+                    />
+                    </x-slot>
+            </x-form.radio-card>
+        @endforeach
     </div>
 </div>

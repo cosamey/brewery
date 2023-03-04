@@ -2,7 +2,7 @@
 
 namespace App\Actions;
 
-use App\Enums\{AddressType, CartStatus, CustomerType, OrderStatus};
+use App\Enums\{AddressType, CartStatus, CustomerType, OrderStatus, PaymentStatus};
 use App\Models\{Cart, Customer, Order};
 
 class CreateOrder
@@ -46,11 +46,6 @@ class CreateOrder
         }
 
         $cart = Cart::find(session()->get('cart_id'));
-        $cart->update([
-            'customer_id' => $customer->id,
-            'status' => CartStatus::Completed,
-            'completed_at' => now(),
-        ]);
 
         $order = $customer->orders()->create([
             'cart_id' => $cart->id,
@@ -58,10 +53,22 @@ class CreateOrder
             'status' => OrderStatus::Pending,
             'delivery_method' => $data['deliveryMethod'],
             'payment_method' => $data['paymentMethod'],
+            'fees' => array_filter($data['fees'], fn ($value) => $value['fee'] > 0),
+            'total' => $data['total'],
             'notes' => $data['notes'] ?? null,
         ]);
 
-        session()->flash('order', $order->id);
+        $order->payment()->create([
+            'intent_id' => null,
+            'status' => PaymentStatus::Pending,
+            'amount' => $data['total'],
+        ]);
+
+        $cart->update([
+            'customer_id' => $customer->id,
+            'status' => CartStatus::Completed,
+            'completed_at' => now(),
+        ]);
 
         return $order;
     }

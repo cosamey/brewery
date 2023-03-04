@@ -7,7 +7,7 @@
     aria-label="Zobraziť produkt {{ $product->name }}"
 >
     <div class="mt-10">
-        {{ $product->thumbnail->img()->attributes([
+        {{ $product->image->img()->attributes([
             'class' => 'mx-auto w-auto origin-bottom-left translate-x-10 object-contain drop-shadow-[-20px_20px_10px_rgba(0,0,0,0.25)] transition group-hover:-rotate-3',
             'alt' => $product->name,
         ]) }}

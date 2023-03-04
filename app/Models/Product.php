@@ -64,7 +64,7 @@ class Product extends Model implements HasMedia
         return $query->where('is_featured', $value);
     }
 
-    public function thumbnail(): Relations\MorphOne
+    public function image(): Relations\MorphOne
     {
         return $this->morphOne(Media::class, 'model')
             ->where('collection_name', 'thumbnail');

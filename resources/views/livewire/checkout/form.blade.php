@@ -8,7 +8,7 @@
             <ul class="mt-5 divide-y-2 divide-gray-700">
                 @foreach ($cart->items as $item)
                     <li class="flex items-center gap-2 py-4">
-                        {{ $item->product->thumbnail->img()->attributes([
+                        {{ $item->product->image->img()->attributes([
                             'class' => 'h-32 w-32 object-contain',
                             'alt' => $item->name,
                         ]) }}

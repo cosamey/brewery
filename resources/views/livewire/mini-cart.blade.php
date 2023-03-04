@@ -32,7 +32,7 @@
                                     href="{{ route('products.show', $item->product) }}"
                                     class="flex items-center gap-2 px-2 py-2"
                                 >
-                                    {{ $item->product->thumbnail->img()->attributes([
+                                    {{ $item->product->image->img()->attributes([
                                         'class' => 'h-20 w-10 object-contain',
                                         'alt' => $item->name,
                                     ]) }}

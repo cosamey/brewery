@@ -13,7 +13,7 @@
                     </div>
                     <div>
                         <div class="sticky top-10">
-                            {{ $product->thumbnail->img()->attributes([
+                            {{ $product->image->img()->attributes([
                                 'class' => 'h-auto w-full drop-shadow-[-40px_40px_5px_rgba(0,0,0,0.25)]',
                                 'alt' => $product->name,
                             ]) }}

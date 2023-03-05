@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\CustomerType;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, Relations};
@@ -24,8 +25,15 @@ class Customer extends Model
 
     protected $casts = [
         'type' => CustomerType::class,
-        'meta' => 'object',
+        'meta' => 'json',
     ];
+
+    public function fullName(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => "{$this->first_name} {$this->last_name}"
+        );
+    }
 
     public function addresses(): Relations\HasMany
     {

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\AddressType;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\{Model, Relations};
@@ -26,6 +27,13 @@ class Address extends Model
     protected $casts = [
         'type' => AddressType::class,
     ];
+
+    public function fullAddress(): Attribute
+    {
+        return Attribute::make(
+            get: fn () => "{$this->street}, {$this->post_code} {$this->city}, {$this->country->name}"
+        );
+    }
 
     public function customer(): Relations\BelongsTo
     {

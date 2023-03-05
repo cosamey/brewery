@@ -12,7 +12,7 @@ class ProductController extends Controller
         return view('products.index', [
             'products' => Product::query()
                 ->active()
-                ->with(['thumbnail'])
+                ->with(['image'])
                 ->get(),
         ]);
     }
@@ -20,7 +20,7 @@ class ProductController extends Controller
     public function show(Product $product): View
     {
         return view('products.show', [
-            'product' => $product->load(['thumbnail', 'category', 'brand', 'allergens']),
+            'product' => $product->load(['image', 'category', 'brand', 'allergens']),
         ]);
     }
 }

@@ -9,7 +9,7 @@ class HomeController extends Controller
 {
     public function __invoke(): View
     {
-        $products = Product::with(['thumbnail'])->active()->get();
+        $products = Product::with(['image'])->active()->get();
 
         return view('pages.home', [
             'featuredProducts' => $products->where('is_featured', true)->all(),

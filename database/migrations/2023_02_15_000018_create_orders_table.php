@@ -12,7 +12,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->foreignUuid('cart_id')->constrained()->onDelete('cascade');
             $table->foreignUuid('customer_id')->constrained()->onDelete('cascade');
-            $table->foreignUuid('address_id')->constrained()->onDelete('cascade');
+            $table->foreignUuid('shipping_address_id')->constrained('addresses')->onDelete('cascade');
+            $table->foreignUuid('billing_address_id')->constrained('addresses')->onDelete('cascade');
             $table->enum('status', ['pending', 'processing', 'shipped', 'completed', 'canceled', 'refunded']);
             $table->enum('delivery_method', ['pickup', 'courier']);
             $table->enum('payment_method', ['card', 'cash', 'transfer']);

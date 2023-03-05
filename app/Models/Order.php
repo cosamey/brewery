@@ -16,7 +16,8 @@ class Order extends Model
     protected $fillable = [
         'cart_id',
         'customer_id',
-        'address_id',
+        'shipping_address_id',
+        'billing_address_id',
         'status',
         'payment_method',
         'delivery_method',
@@ -29,7 +30,7 @@ class Order extends Model
         'status' => OrderStatus::class,
         'payment_method' => PaymentMethod::class,
         'delivery_method' => DeliveryMethod::class,
-        'fees' => 'object',
+        'fees' => 'json',
         'total' => Money::class,
     ];
 
@@ -43,9 +44,14 @@ class Order extends Model
         return $this->belongsTo(Customer::class);
     }
 
-    public function address(): Relations\BelongsTo
+    public function shippingAddress(): Relations\BelongsTo
     {
-        return $this->belongsTo(Address::class);
+        return $this->belongsTo(Address::class, 'shipping_address_id');
+    }
+
+    public function billingAddress(): Relations\BelongsTo
+    {
+        return $this->belongsTo(Address::class, 'billing_address_id');
     }
 
     public function payment(): Relations\HasOne

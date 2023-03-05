@@ -36,7 +36,7 @@ class CreateOrder
         ]);
 
         if (! $data['sameAddress']) {
-            $customer->addresses()->create([
+            $billingAddress = $customer->addresses()->create([
                 'type' => AddressType::Billing,
                 'street' => $data['billingAddress']['street'],
                 'city' => $data['billingAddress']['city'],
@@ -49,7 +49,8 @@ class CreateOrder
 
         $order = $customer->orders()->create([
             'cart_id' => $cart->id,
-            'address_id' => $shippingAddress->id,
+            'shipping_address_id' => $shippingAddress->id,
+            'billing_address_id' => $billingAddress?->id ?? $shippingAddress->id,
             'status' => OrderStatus::Pending,
             'delivery_method' => $data['deliveryMethod'],
             'payment_method' => $data['paymentMethod'],

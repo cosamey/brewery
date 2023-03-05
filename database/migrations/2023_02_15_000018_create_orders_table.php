@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('total', unsigned: true);
             $table->text('notes')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 };

@@ -15,6 +15,7 @@ return new class extends Migration
             $table->integer('amount', unsigned: true);
             $table->json('meta')->nullable();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 };

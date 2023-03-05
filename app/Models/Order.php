@@ -6,12 +6,13 @@ use App\Casts\Money;
 use App\Enums\{DeliveryMethod, OrderStatus, PaymentMethod};
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\{Model, Relations};
+use Illuminate\Database\Eloquent\{Model, Relations, SoftDeletes};
 
 class Order extends Model
 {
     use HasFactory;
     use HasUuids;
+    use SoftDeletes;
 
     protected $fillable = [
         'cart_id',

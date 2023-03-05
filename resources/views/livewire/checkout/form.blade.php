@@ -8,7 +8,7 @@
             <ul class="mt-5 divide-y-2 divide-gray-700">
                 @foreach ($cart->items as $item)
                     <li class="flex items-center gap-2 py-4">
-                        {{ $item->product->image->img()->attributes([
+                        {{ $item->product->image?->img()->attributes([
                             'class' => 'h-32 w-32 object-contain',
                             'alt' => $item->name,
                         ]) }}
@@ -23,7 +23,7 @@
                     </li>
                 @endforeach
             </ul>
-            <dl class="p-4 rounded-2xl border-2 border-gray-700">
+            <dl class="rounded-2xl border-2 border-gray-700 p-4">
                 <div class="flex items-center gap-2">
                     <dt>Suma bez DPH</dt>
                     <dd>{{ price_format(cart()->total() - cart()->tax()) }}</dd>
@@ -77,13 +77,19 @@
                 @submit.prevent="pay"
                 class="flex flex-col gap-10"
             >
-                <div id="payment-element"></div>
-                <p
-                    x-show="error"
-                    x-text="error"
-                    class="text-red-500"
-                    x-cloak
-                ></p>
+                <span class="text-3xl">06</span>
+                <h2 class="text-4xl font-bold uppercase">
+                    Platba
+                </h2>
+                <div class="mt-5">
+                    <div id="payment-element"></div>
+                    <p
+                        x-show="error"
+                        x-text="error"
+                        class="text-red-500"
+                        x-cloak
+                    ></p>
+                </div>
                 <x-button
                     type="submit"
                     class="w-full"
@@ -92,7 +98,9 @@
                     <span
                         x-show="isProcessing"
                         x-cloak
-                    >Spracovávanie</span>
+                    >
+                        Spracovávanie
+                    </span>
                 </x-button>
             </form>
         @endunless

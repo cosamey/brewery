@@ -17,6 +17,7 @@ return new class extends Migration
             $table->enum('status', ['inactive', 'active']);
             $table->boolean('is_featured')->default(false);
             $table->integer('stock', unsigned: true)->nullable();
+            $table->string('excerpt')->nullable();
             $table->text('description')->nullable();
             $table->tinyInteger('tax_rate', unsigned: true);
             $table->integer('price', unsigned: true);

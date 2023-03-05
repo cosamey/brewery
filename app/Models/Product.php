@@ -24,6 +24,7 @@ class Product extends Model implements HasMedia
         'status',
         'is_featured',
         'stock',
+        'excerpt',
         'description',
         'tax_rate',
         'price',
@@ -49,6 +50,11 @@ class Product extends Model implements HasMedia
     public function registerMediaCollections(): void
     {
         $this->addMediaCollection('thumbnail')
+            ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp'])
+            ->withResponsiveImages()
+            ->singleFile();
+
+        $this->addMediaCollection('art')
             ->acceptsMimeTypes(['image/jpeg', 'image/png', 'image/webp'])
             ->withResponsiveImages()
             ->singleFile();

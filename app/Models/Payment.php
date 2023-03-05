@@ -23,7 +23,7 @@ class Payment extends Model
     protected $casts = [
         'status' => PaymentStatus::class,
         'amount' => Money::class,
-        'meta' => 'object',
+        'meta' => 'json',
     ];
 
     public function order(): Relations\BelongsTo

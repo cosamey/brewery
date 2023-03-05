@@ -36,7 +36,7 @@ class Product extends Model implements HasMedia
         'stock' => 'int',
         'tax_rate' => 'int',
         'price' => Money::class,
-        'attributes' => 'object',
+        'attributes' => 'json',
     ];
 
     public function getSlugOptions(): SlugOptions
